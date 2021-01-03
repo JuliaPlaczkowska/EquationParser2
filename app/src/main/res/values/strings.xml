@@ -7,9 +7,7 @@
     <string name="hint_request">Enter equation</string>
     <string name="hint_request2">Enter value</string>
     <string name="txt_request">CALCULATE VALUE FOR X</string>
-    <string name="txt_json_request">Get a joke!</string>
-    <string name="title_activity_json">JsonActivity</string>
     <string name="result">Result: 0</string>
-    <string name="dev_result">Derivative of polynomialAAAAA: 0</string>
+    <string name="dev_result">Derivative of polynomial: 0</string>
 
 </resources>

@@ -7,56 +7,52 @@ import java.util.List;
 
 public class Polynomial implements Serializable {
 
-    double[] factors;
+    int[] factors;
 
-    public Polynomial(double[] factors) {
+    public Polynomial(int[] factors) {
         this.factors = factors;
     }
 
     public Polynomial(String equation){
         List<String> items = Arrays.asList(equation.split(","));
-        factors = new double[items.size()];
+        factors = new int[items.size()];
         for (int i = 0; i <factors.length; i++) {
-            factors[i]=Double.parseDouble(items.get(i));
+            factors[i]=Integer.parseInt(items.get(i));
         }
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        int pow = factors.length;
-        String sign = "";
-        sb.append(factors[0]+"x^"+-pow);
+        sb.append(factors[0]+"x^"+(factors.length-1));
 
-        for (int i = 1; i <factors.length ; i++) {
+        for (int i = 1; i<factors.length ; i++) {
 
-            if (factors[i]>=0) {
-                sign = "+";
+            if (factors[i]>0) {
+                sb.append("+"+factors[i]+"x^"+(factors.length-i-1));
             }
+            else if(factors[i]>=0){}
             else
-                sign = "-";
+                sb.append(factors[i]+"x^"+(factors.length-i-1));
 
-            sb.append(sign+factors[i]+"x^"+-pow);
         }
         return sb.toString();
     }
 
     public String toSimplify(int x){
         StringBuilder sb = new StringBuilder();
-        int pow = factors.length;
         String val = "("+x+")";
-        String sign = "";
-        sb.append(factors[0]+val+"^"+-pow);
+        sb.append(factors[0]+val+"^"+(factors.length-1));
 
-        for (int i = 1; i <factors.length ; i++) {
+        for (int i = 1; i<factors.length ; i++) {
 
-            if (factors[i]>=0) {
-                sign = "+";
+            if (factors[i]>0) {
+                sb.append("+"+factors[i]+val+"^"+(factors.length-i-1));
             }
+            else if(factors[i]>=0){}
             else
-                sign = "-";
+                sb.append(factors[i]+val+"^"+(factors.length-i-1));
 
-            sb.append(sign+factors[i]+val+"^"+-pow);
         }
         return sb.toString();
     }

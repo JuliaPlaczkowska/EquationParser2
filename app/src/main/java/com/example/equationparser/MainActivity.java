@@ -8,9 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 public class MainActivity extends AppCompatActivity {
 
-    public final EditText editText = (EditText) findViewById(R.id.edtSimpleRequest);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,17 +21,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void valueRequestClick(View view) {
+
+        EditText editText = findViewById(R.id.etEquation);
+        Intent intent = new Intent(this, CalculateValueActivity.class);
+        Polynomial poly = new Polynomial(editText.getText().toString());
+        intent.putExtra("Polynomial", poly);
+        startActivity(intent);
+    }
     public void derivativeRequestClick(View view) {
+        EditText editText = findViewById(R.id.etEquation);
         Intent intent = new Intent(this, DerivativeActivity.class);
         Polynomial poly = new Polynomial(editText.getText().toString());
         intent.putExtra("Polynomial", poly);
         startActivity(intent);
     }
 
-    public void valueRequestClick(View view) {
-        Intent intent = new Intent(this, CalculateValueActivity.class);
-        Polynomial poly = new Polynomial(editText.getText().toString());
-        intent.putExtra("Polynomial", poly);
-        startActivity(intent);
-    }
 }
