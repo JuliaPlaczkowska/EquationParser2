@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:orientation="vertical"
+    tools:context=".CalculateValueActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/heading2"
+        android:layout_gravity="center"
+        android:textColor="@color/purple_700"
+        android:textSize="32sp"
+        />
+
+    <EditText
+        android:id="@+id/edtSimpleRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:ems="40"
+        android:hint="@string/hint_request2"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:maxLines="1" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_request"
+        android:onClick="onCalculateValue" />
+
+    <TextView
+        android:id="@+id/tvResponse"
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/result"
+        android:textColor="@color/teal_200"
+        android:textSize="20sp" />
+
+
+
+</LinearLayout>
