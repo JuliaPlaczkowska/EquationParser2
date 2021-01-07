@@ -41,7 +41,7 @@ public class CalculateValueActivity extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, response ->
         {
             Result result = gson.fromJson(response, Result.class);
-            textView.setText(result.getResult());
+            textView.setText("Result: "+result.getResult());
             //textView.setText("toSimplify: "+poly.toSimplify(Integer.parseInt(editText.getText().toString())));
 
             System.out.println(poly.toSimplify(Integer.parseInt(editText.getText().toString())));
